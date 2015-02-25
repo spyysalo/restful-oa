@@ -1,6 +1,6 @@
 .PHONY: serve
 serve:
-	python app.py
+	python server.py
 
 .PHONY: deps
 deps:
