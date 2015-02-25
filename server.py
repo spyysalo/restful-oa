@@ -12,8 +12,8 @@ from app import app
 
 def get_store():
     if get_store._store is None:
-        from memstore import MemStore
-        get_store._store = MemStore()
+        from sqlitestore import SQLiteStore
+        get_store._store = SQLiteStore()
     return get_store._store
 get_store._store = None
 
