@@ -51,9 +51,15 @@ def render_resource_jsonld(data, links):
         data['@context'] =  'http://www.w3.org/ns/oa-context-20130208.json'
     return json.dumps(data, sort_keys=True, indent=2, separators=(',', ': '))+'\n'
     
+def render_resource_rdf(data, links):
+    import oajson
+    rdf = oajson.to_rdf(data, base='http://127.0.0.1:5000/')
+    return rdf
+
 def render_resource(f):
     return render(default='xml', 
                   html=render_resource_html,
                   xml=render_resource_xml,
                   json=render_resource_json,
-                  jsonld=render_resource_jsonld)(f)
+                  jsonld=render_resource_jsonld,
+                  rdf=render_resource_rdf)(f)
