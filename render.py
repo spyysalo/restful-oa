@@ -10,19 +10,6 @@ from mimerender import FlaskMimeRender
 from config import DEBUG
 from error import NotFound
 
-# Following https://github.com/martinblech/mimerender
-render_xml = lambda message: '<message>%s</message>'%message
-render_json = lambda **args: json.dumps(args)
-render_html = lambda message: '<html><body>%s</body></html>'%message
-render_txt = lambda message: message
-
-def render_default(f):
-    return render(default='html', 
-                  html=render_html, 
-                  xml=render_xml,
-                  json=render_json,
-                  txt=render_txt)(f)
-
 # Following http://stackoverflow.com/q/13480675
 render_xml_exception = lambda exception: '<exception>%s</exception>'%exception
 render_json_exception = lambda exception: json.dumps({ 'exception' : '; '.join(exception.args)})
@@ -53,7 +40,7 @@ def render_resource_xml(data, links):
     return render_template('resource.xml', data=data, links=links)
 
 def render_resource_json(data, links):
-    return json.dumps({ 'data' : data, '_links' : links })
+    return json.dumps({ 'data' : data, '_links' : links }, sort_keys=True, indent=2, separators=(',', ': '))+'\n'
     
 def render_resource(f):
     return render(default='xml', 
