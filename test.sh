@@ -12,3 +12,5 @@ curl -X PUT -i \
     "$BASE/1"
 
 curl -X GET -i -H 'Accept: application/json' "$BASE/1"
+
+curl -X GET -i -H 'Accept: application/ld+json' "$BASE/1"

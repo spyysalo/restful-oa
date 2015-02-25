@@ -1,8 +1,9 @@
 import json
 
-from mimerender import FlaskMimeRender
+from mimerender import FlaskMimeRender, register_mime
 
 render = FlaskMimeRender()
+register_mime('jsonld', ('application/ld+json', ))
 
 from flask import render_template
 from mimerender import FlaskMimeRender
@@ -41,9 +42,18 @@ def render_resource_xml(data, links):
 
 def render_resource_json(data, links):
     return json.dumps({ 'data' : data, '_links' : links }, sort_keys=True, indent=2, separators=(',', ': '))+'\n'
+
+def render_resource_jsonld(data, links):
+    # Assume Open Annotation, fill in recommended JSON-LD context
+    # (see http://www.openannotation.org/spec/core/publishing.html)
+    data = data.copy()
+    if '@context' not in data:
+        data['@context'] =  'http://www.w3.org/ns/oa-context-20130208.json'
+    return json.dumps(data, sort_keys=True, indent=2, separators=(',', ': '))+'\n'
     
 def render_resource(f):
     return render(default='xml', 
                   html=render_resource_html,
                   xml=render_resource_xml,
-                  json=render_resource_json)(f)
+                  json=render_resource_json,
+                  jsonld=render_resource_jsonld)(f)
