@@ -4,7 +4,11 @@ import sys
 
 import flask
 
-app = flask.Flask(__name__)
+from render import render_resource, map_exceptions
+from error import NotFound
+from config import DEBUG
+
+from app import app
 
 def get_store():
     if get_store._store is None:
@@ -16,6 +20,8 @@ get_store._store = None
 ### annotation collection
 
 @app.route('/annotations/', methods=['GET', 'POST'])
+@map_exceptions
+@render_resource
 def annotation_collection():
     method = flask.request.method
     if method == 'GET':
@@ -25,15 +31,15 @@ def annotation_collection():
     else:
         assert False, 'unexpected method'
 
-def render_ids_html(ids):
-    return str(ids)
-
 def get_annotation_collection():
-    return render_ids_html(get_store().ids())
+    ids = get_store().ids()
+    return { 'data' : { 'ids': ids }, 'links' : {} }
 
 ### annotation
 
 @app.route('/annotations/<id_>', methods=['GET', 'PUT', 'DELETE'])
+@map_exceptions
+@render_resource
 def annotation(id_):
     method = flask.request.method
     if method == 'GET':
@@ -45,23 +51,21 @@ def annotation(id_):
     else:
         assert False, 'unexpected method'
 
-def render_annotation_html(annotation):
-    return str(annotation)
-
 def get_annotation(id_):
-    return render_annotation_html(get_store().get(id_))
+    annotation = get_store().get(id_)
+    return { 'data' : annotation, 'links' : { 'self' : id_, } }
 
 def put_annotation(id_):
     annotation = flask.request.get_json()
     get_store().put(annotation, id_)
-    return 'OK'
+    return { 'data' : annotation, 'links' : { 'self' : id_, } }
 
 def delete_annotation(id_):
     get_store().delete(id_)
-    return 'OK'
+    return { 'data' : {}, 'links' : { 'self' : id_, } }
 
 def main(argv):
-    app.run(debug=True)
+    app.run(debug=DEBUG)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

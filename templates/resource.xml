@@ -1,0 +1,8 @@
+<resource>
+{% for key, value in data.iteritems() %}
+  <{{ key|e }}>{{ value|e }}</{{ key|e }}>
+{% endfor %}
+{% for key, value in links.iteritems() %}
+  <link rel="{{ key|e }}">{{ value|e }}</link>
+{% endfor %}
+</resource>

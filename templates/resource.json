@@ -1,0 +1,6 @@
+{
+{% for key, value in data.iteritems() %}
+    {{ key }}: {{ value }},
+{% endfor %}
+   "_links": {{ links }}
+}
