@@ -13,7 +13,10 @@ from sqlite3 import connect
 from store import Store
 
 class SQLiteStore(Store):
-    '''XXX:'''
+    '''
+    SQLite storage back-end.
+    '''
+
     def __init__(self, path=None, id_key=None):
         super(SQLiteStore, self).__init__(id_key)
         self.conn = connect(':memory:' if path is None else path)
