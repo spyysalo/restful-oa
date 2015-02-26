@@ -26,7 +26,7 @@ class SQLiteStore(Store):
         self.curse = self.conn.cursor()
         self.curse.execute('''
         CREATE TABLE IF NOT EXISTS objs(
-            id  INTEGER,
+            id  STRING,
             obj STRING,
 
             PRIMARY KEY(id)
@@ -51,7 +51,7 @@ class SQLiteStore(Store):
             id_ = self.obj_id(obj)
         except KeyError:
             id_ = self._assign_id(obj)
-        self.put(obj)
+        return self.put(obj)
 
     def get(self, id_):
         self.curse.execute('SELECT obj FROM objs WHERE id=?;', (id_, ))

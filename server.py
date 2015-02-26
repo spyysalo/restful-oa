@@ -27,7 +27,7 @@ def annotation_collection():
     if method == 'GET':
         return get_annotation_collection()
     elif method == 'POST':
-        raise NotImplementedError
+        return post_annotation_collection()
     else:
         assert False, 'unexpected method'
 
@@ -41,6 +41,11 @@ def get_annotation_collection():
     for a in annotations:
         _expand_relative(a, 'http://127.0.0.1:5000/annotations/')
     return { 'data' : { '@graph' : annotations }, 'links' : links }
+
+def post_annotation_collection():
+    annotation = flask.request.get_json()
+    inserted = get_store().insert(annotation)
+    return { 'data' : {}, 'links': {} } # TODO
 
 ### annotation
 
