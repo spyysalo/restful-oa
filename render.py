@@ -1,9 +1,13 @@
 import json
 
-from mimerender import FlaskMimeRender, register_mime
+from mimerender import FlaskMimeRender, register_mime, MimeRenderException
 
 render = FlaskMimeRender()
-register_mime('jsonld', ('application/ld+json', ))
+try:
+    register_mime('jsonld', ('application/ld+json', ))
+except MimeRenderException:
+    # assume already registered
+    pass
 
 from flask import render_template
 from mimerender import FlaskMimeRender
