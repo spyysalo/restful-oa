@@ -11,7 +11,7 @@
     <h2>data</h2>
     <ul>
 {% for key, value in data.iteritems() %}
-      <li>{{ key|e }}: {{ value|e }}</li>
+      <li>{{ key|e }}: <a href="{{ value|e }}">{{ value|e }}</a></li>
 {% endfor %}
     </ul>
     <h2>links</h2>
