@@ -38,9 +38,20 @@ def get_annotation_collection():
     # TODO: get in bulk from DB
     annotations = [store.get(i) for i in ids]
     links = { i: '/annotations/%s' % str(i) for i in ids }
+    for a in annotations:
+        _expand_relative(a, 'http://127.0.0.1:5000/annotations/')
     return { 'data' : { '@graph' : annotations }, 'links' : links }
 
 ### annotation
+
+def _is_relative(uri):
+    # TODO: avoid ad-hoc impl, invoke JSON-LD expansion instead
+    return not uri.startswith('http://')
+
+def _expand_relative(obj, base):
+    # TODO: avoid ad-hoc impl, invoke JSON-LD expansion instead
+    if _is_relative(obj['@id']):
+        obj['@id'] = base + obj['@id']
 
 @app.route('/annotations/<id_>', methods=['GET', 'PUT', 'DELETE'])
 @map_exceptions
@@ -58,6 +69,7 @@ def annotation(id_):
 
 def get_annotation(id_):
     annotation = get_store().get(id_)
+    _expand_relative(annotation, 'http://127.0.0.1:5000/annotations/')
     return { 'data' : annotation, 'links' : { 'self' : id_, } }
 
 def put_annotation(id_):
