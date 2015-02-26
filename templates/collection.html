@@ -18,7 +18,7 @@
 {% endfor %}
     <h2>links</h2>
     <ul>
-{% for key, value in links.iteritems() %}
+{% for key, value in links|dictsort %}
       <li>{{ key|e }}: <a href="{{ value|e }}" rel="{{ key|e }}">{{ value|e }}</a></li>
 {% endfor %}
     </ul>
