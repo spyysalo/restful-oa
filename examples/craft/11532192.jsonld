@@ -53,116 +53,116 @@
   },
   "@graph": [
      {
-       "@id": "http://craft.ucdenver.edu/annotation/a26e6618df",
+       "@id": "a26e6618df",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005623",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=1878,1882"
+       "hasTarget": "/documents/11532192.txt#char=1878,1882"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/6cfc551f2d",
+       "@id": "6cfc551f2d",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005623",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=5795,5800"
+       "hasTarget": "/documents/11532192.txt#char=5795,5800"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/3b6cf25286",
+       "@id": "3b6cf25286",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005623",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=5939,5944"
+       "hasTarget": "/documents/11532192.txt#char=5939,5944"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/f5daf9f201",
+       "@id": "f5daf9f201",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005623",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=30902,30907"
+       "hasTarget": "/documents/11532192.txt#char=30902,30907"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/2860236e2e",
+       "@id": "2860236e2e",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005694",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=2132,2143"
+       "hasTarget": "/documents/11532192.txt#char=2132,2143"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/bb1dc8304e",
+       "@id": "bb1dc8304e",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18004,18016"
+       "hasTarget": "/documents/11532192.txt#char=18004,18016"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/babb2fd6c9",
+       "@id": "babb2fd6c9",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18022,18034"
+       "hasTarget": "/documents/11532192.txt#char=18022,18034"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/842685f7e6",
+       "@id": "842685f7e6",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18133,18145"
+       "hasTarget": "/documents/11532192.txt#char=18133,18145"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/00feb110cc",
+       "@id": "00feb110cc",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18292,18304"
+       "hasTarget": "/documents/11532192.txt#char=18292,18304"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/d7619ccc97",
+       "@id": "d7619ccc97",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18611,18623"
+       "hasTarget": "/documents/11532192.txt#char=18611,18623"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/06899e0904",
+       "@id": "06899e0904",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18625,18630"
+       "hasTarget": "/documents/11532192.txt#char=18625,18630"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/0870484dc3",
+       "@id": "0870484dc3",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0000806",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=18641,18646"
+       "hasTarget": "/documents/11532192.txt#char=18641,18646"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/9d74e5125f",
+       "@id": "9d74e5125f",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005694",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=22266,22277"
+       "hasTarget": "/documents/11532192.txt#char=22266,22277"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/a274ce883d",
+       "@id": "a274ce883d",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0030424",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=32829,32834"
+       "hasTarget": "/documents/11532192.txt#char=32829,32834"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/4686268ee1",
+       "@id": "4686268ee1",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005694",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=39803,39813"
+       "hasTarget": "/documents/11532192.txt#char=39803,39813"
      },
      {
-       "@id": "http://craft.ucdenver.edu/annotation/d14a982d45",
+       "@id": "d14a982d45",
        "@type": "oa:Annotation",
        "annotatedBy": "http://compbio.ucdenver.edu/Hunter_lab",
        "hasBody": "http://purl.obolibrary.org/obo/GO_0005694",
-       "hasTarget": "http://bionlp-corpora.sourceforge.net/CRAFT/1.0/11532192.txt#char=39815,39818"
+       "hasTarget": "/documents/11532192.txt#char=39815,39818"
      }
   ]
 }
