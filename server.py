@@ -6,7 +6,7 @@ import flask
 
 from render import render_resource, map_exceptions
 from error import NotFound
-from config import DEBUG
+from config import DOCUMENT_PATH, DEBUG
 
 from app import app
 
@@ -63,6 +63,16 @@ def put_annotation(id_):
 def delete_annotation(id_):
     get_store().delete(id_)
     return { 'data' : {}, 'links' : { 'self' : id_, } }
+
+### static documents
+
+@app.route('/documents/')
+def document_collection():
+    raise NotImplementedError('document listing TODO')
+
+@app.route('/documents/<id_>')
+def document(id_):
+    return flask.send_from_directory(DOCUMENT_PATH, id_)
 
 def main(argv):
     app.run(debug=DEBUG)
