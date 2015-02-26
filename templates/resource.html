@@ -7,8 +7,7 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>resource</h1>
-    <h2>data</h2>
+    <h1>Resource</h1>
     <ul>
 {% for key, value in data.iteritems() %}
       <li>{{ key|e }}: <a href="{{ value|e }}">{{ value|e }}</a></li>
