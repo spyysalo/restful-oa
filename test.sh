@@ -20,3 +20,17 @@ curl -X GET -i -H 'Accept: application/json' "$BASE/1"
 curl -X GET -i -H 'Accept: application/ld+json' "$BASE/1"
 
 curl -X GET -i -H 'Accept: application/rdf+xml' "$BASE/1"
+
+# put example annotations
+for d in examples/*; do
+    for f in $d/*.jsonld; do
+	python -c '
+import json
+doc=json.load(open("examples/craft/11532192.jsonld"))
+print "\n".join([json.dumps(a) for a in doc["@graph"]])
+' | while read a; do
+	    # echo "INSERT: $a "
+	    curl -X POST -i -H 'Content-Type: application/json' -d "$a" "$BASE/"
+	done
+    done
+done
