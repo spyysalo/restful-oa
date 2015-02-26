@@ -37,7 +37,8 @@ def map_exceptions(f):
         json=render_json_exception,
         txt=render_txt_exception)(f)
 
-# RESTish
+### render individual resource
+
 def render_resource_html(data, links):
     return render_template('resource.html', data=data, links=links)
 
@@ -60,9 +61,28 @@ def render_resource_rdf(data, links):
     rdf = oajson.to_rdf(data, base='http://127.0.0.1:5000/')
     return rdf
 
+### render collection resource
+
+def render_collection_html(data, links):
+    if isinstance(data, dict) and '@graph' in data:
+        data = data['@graph']
+    if not(isinstance(data, list)):
+        data = [data]
+    return render_template('collection.html', data=data, links=links)
+
+### decorators
+
 def render_resource(f):
-    return render(default='xml', 
+    return render(default='json',
                   html=render_resource_html,
+                  xml=render_resource_xml,
+                  json=render_resource_json,
+                  jsonld=render_resource_jsonld,
+                  rdf=render_resource_rdf)(f)
+
+def render_collection(f):
+    return render(default='json',
+                  html=render_collection_html,
                   xml=render_resource_xml,
                   json=render_resource_json,
                   jsonld=render_resource_jsonld,

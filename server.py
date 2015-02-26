@@ -4,7 +4,7 @@ import sys
 
 import flask
 
-from render import render_resource, map_exceptions
+from render import render_resource, render_collection, map_exceptions
 from error import NotFound
 from config import DOCUMENT_PATH, DEBUG
 
@@ -21,7 +21,7 @@ get_store._store = None
 
 @app.route('/annotations/', methods=['GET', 'POST'])
 @map_exceptions
-@render_resource
+@render_collection
 def annotation_collection():
     method = flask.request.method
     if method == 'GET':

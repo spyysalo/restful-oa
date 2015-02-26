@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Resource{% endblock %}
+{% block title %}Collection{% endblock %}
 {% block head %}
 {{ super() }}
     <style type="text/css">
@@ -7,13 +7,15 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>resource</h1>
+    <h1>collection</h1>
     <h2>data</h2>
+{% for item in data %}
     <ul>
-{% for key, value in data.iteritems() %}
+{% for key, value in item.iteritems() %}
       <li>{{ key|e }}: {{ value|e }}</li>
 {% endfor %}
     </ul>
+{% endfor %}
     <h2>links</h2>
     <ul>
 {% for key, value in links.iteritems() %}
