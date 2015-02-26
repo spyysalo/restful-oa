@@ -72,7 +72,7 @@ def annotation(id_):
     else:
         assert False, 'unexpected method'
 
-def get_annotation(id_):
+def get_annotation(id_, format=None):
     annotation = get_store().get(id_)
     _expand_relative(annotation, 'http://127.0.0.1:5000/annotations/')
     return { 'data' : annotation, 'links' : { 'self' : id_, } }

@@ -78,7 +78,8 @@ def render_resource(f):
                   xml=render_resource_xml,
                   json=render_resource_json,
                   jsonld=render_resource_jsonld,
-                  rdf=render_resource_rdf)(f)
+                  rdf=render_resource_rdf,
+                  override_input_key = 'format')(f)
 
 def render_collection(f):
     return render(default='json',
