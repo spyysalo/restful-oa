@@ -38,6 +38,7 @@ def get_annotation_collection():
     # TODO: get in bulk from DB
     annotations = [store.get(i) for i in ids]
     links = { i: '/annotations/%s' % str(i) for i in ids }
+    links['home'] = '../'
     for a in annotations:
         _expand_relative(a, 'http://127.0.0.1:5000/annotations/')
     return { 'data' : { '@graph' : annotations }, 'links' : links }
@@ -95,6 +96,14 @@ def document_collection():
 @app.route('/documents/<id_>')
 def document(id_):
     return flask.send_from_directory(DOCUMENT_PATH, id_)
+
+### root
+
+@app.route('/')
+@map_exceptions
+@render_resource
+def root():
+    return { 'data': {}, 'links': { 'annotations': 'annotations/' } }
 
 def main(argv):
     app.run(debug=DEBUG)

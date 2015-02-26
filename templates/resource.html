@@ -9,7 +9,7 @@
 {% block content %}
     <h1>Resource</h1>
     <ul>
-{% for key, value in data.iteritems() %}
+{% for key, value in data|dictsort %}
       <li>{{ key|e }}: <a href="{{ value|e }}">{{ value|e }}</a></li>
 {% endfor %}
     </ul>

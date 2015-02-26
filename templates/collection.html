@@ -10,10 +10,11 @@
     <h1>Collection</h1>
 {% for item in data %}
     <ul>
-{% for key, value in item.iteritems() %}
+{% for key, value in item|dictsort %}
       <li>{{ key|e }}: <a href="{{ value|e }}">{{ value|e }}</a></li>
 {% endfor %}
     </ul>
+    <hr/>
 {% endfor %}
     <h2>links</h2>
     <ul>
