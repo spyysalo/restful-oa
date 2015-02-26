@@ -37,6 +37,8 @@ class SQLiteStore(Store):
         self.conn.close()
 
     def put(self, obj, id_=None):
+        if id_ is None:
+            id_ = self.obj_id(obj)
         self.curse.execute('INSERT OR REPLACE INTO objs VALUES (?, ?);',
             (id_, dumps(obj), ))
         self.conn.commit()
@@ -44,6 +46,10 @@ class SQLiteStore(Store):
         return self.curse.fetchone()[0]
 
     def insert(self, obj):
+        try:
+            id_ = self.obj_id(obj)
+        except KeyError:
+            id_ = self._assign_id(obj)
         self.put(obj)
 
     def get(self, id_):
@@ -65,3 +71,6 @@ class SQLiteStore(Store):
     def ids(self):
         self.curse.execute('SELECT id FROM objs;')
         return [res[0] for res in self.curse.fetchall()]
+
+    def _assign_id(self, obj):
+        raise NotImplementedError
