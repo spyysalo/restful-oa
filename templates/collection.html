@@ -12,7 +12,7 @@
 {% for item in data %}
     <ul>
 {% for key, value in item.iteritems() %}
-      <li>{{ key|e }}: {{ value|e }}</li>
+      <li>{{ key|e }}: <a href="{{ value|e }}">{{ value|e }}</a></li>
 {% endfor %}
     </ul>
 {% endfor %}
