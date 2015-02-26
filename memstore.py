@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from store import Store
+from error import NotFound
 
 class MemStore(Store):
     """In-memory id-based storage."""
@@ -11,7 +12,10 @@ class MemStore(Store):
         self._next_id = 1
 
     def get(self, id_):
-        return self.obj_by_id[id_]
+        try:
+            return self.obj_by_id[id_]
+        except KeyError:
+            raise NotFound
 
     def put(self, obj, id_=None):
         if id_ is None:

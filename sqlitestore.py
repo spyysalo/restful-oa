@@ -11,6 +11,7 @@ from json import dumps, loads
 from sqlite3 import connect
 
 from store import Store
+from error import NotFound
 
 class SQLiteStore(Store):
     '''
@@ -56,7 +57,7 @@ class SQLiteStore(Store):
         self.curse.execute('SELECT obj FROM objs WHERE id=?;', (id_, ))
         res = self.curse.fetchone()
         if res is None:
-            assert False # TODO: Decide on exception.
+            raise NotFound
         return loads(res[0])
 
     def delete(self, id_):
