@@ -32,8 +32,13 @@ def annotation_collection():
         assert False, 'unexpected method'
 
 def get_annotation_collection():
-    ids = get_store().ids()
-    return { 'data' : { 'ids': ids }, 'links' : {} }
+    store = get_store()
+    ids = store.ids()
+#    return { 'data' : { 'ids': ids }, 'links' : {} }
+    # TODO: get in bulk from DB
+    annotations = [store.get(i) for i in ids]
+    links = { i: '/annotations/%s' % str(i) for i in ids }
+    return { 'data' : { '@graph' : annotations }, 'links' : links }
 
 ### annotation
 
