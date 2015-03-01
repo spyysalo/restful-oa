@@ -10,3 +10,5 @@ For more information, see
 * http://www.openannotation.org/spec/core/
 * http://json-ld.org/
 * http://en.wikipedia.org/wiki/REST
+
+RESTful-OA wiki: https://github.com/spyysalo/restful-oa/wiki
