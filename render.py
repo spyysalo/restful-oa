@@ -31,7 +31,7 @@ def map_exceptions(f):
                 ])
     return render.map_exceptions(
         mapping=mapping,
-        default = 'html',
+        default = 'json',
         html=render_html_exception,
         xml=render_xml_exception,
         json=render_json_exception,
@@ -73,7 +73,7 @@ def render_collection_html(data, links):
 ### decorators
 
 def render_resource(f):
-    return render(default='json',
+    return render(default='jsonld',
                   html=render_resource_html,
                   xml=render_resource_xml,
                   json=render_resource_json,
