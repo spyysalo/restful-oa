@@ -3,6 +3,7 @@
 import sys
 
 import flask
+import requests
 
 from render import render_resource, render_collection, map_exceptions
 from error import NotFound
@@ -97,6 +98,18 @@ def document_collection():
 @app.route('/documents/<id_>')
 def document(id_):
     return flask.send_from_directory(DOCUMENT_PATH, id_)
+
+### proxy
+@app.route('/proxy/<path:url>')
+def proxy(url):
+    # ht: http://flask.pocoo.org/docs/0.10/patterns/streaming/
+    # http://flask.pocoo.org/snippets/118/
+    # TODO: check
+    # that the client is ours, otherwise we're operating an open proxy
+    request = requests.get('http://'+url, stream=True)
+    iter, ctype = request.iter_content(), request.headers['Content-Type']
+    stream = flask.stream_with_context(iter)
+    return flask.Response(stream, content_type=ctype)
 
 ### root
 
